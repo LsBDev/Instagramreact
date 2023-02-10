@@ -8,15 +8,15 @@ import Posts from "./components/Posts"
 function InstagramLayout() {
   return (
     <div class="root">
-    <Navbar />
-    <div class="corpo">
-      <div class="esquerda">
-        <Stories/>
-        <Posts />
+      <Navbar />
+      <div class="corpo">
+        <div class="esquerda">
+          <Stories/>
+          <Posts />
+        </div>
+        <Sidebar/>
       </div>
-      <Sidebar/>
     </div>
-  </div>
   )
 }
 
