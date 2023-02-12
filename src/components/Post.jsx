@@ -3,17 +3,20 @@ import { useState } from "react"
 export default function Post(props) {
   const [like, setLike] = useState ("heart-outline")
   const [cor, setCor] = useState ("")
-  const [save, setSave] = useState ("bookmark-outline")  
+  const [save, setSave] = useState ("bookmark-outline")
+  const [cont, setCont] = useState (Math.floor(Math.random()*1000))
 
   function liker() {
     switch (like){
       case "heart-outline":
         setLike("heart")
         setCor("red")
+        setCont(cont + 1)
         break;
       case "heart":
         setLike("heart-outline")
         setCor("")
+        setCont(cont - 1 )
         break;
       default:
     }
@@ -24,6 +27,7 @@ export default function Post(props) {
       case "heart-outline":
         setLike("heart")
         setCor("red")
+        setCont(cont + 1)
         break;
       default:
     }
@@ -72,7 +76,7 @@ export default function Post(props) {
         <div class="curtidas">
           <img src="assets/img/respondeai.svg" alt="respondeai"/>
           <div class="texto">
-            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+            Curtido por <strong>respondeai</strong> e <strong>outras {cont} pessoas</strong>
           </div>
         </div>
       </div>
