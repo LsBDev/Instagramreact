@@ -1,4 +1,46 @@
+import { useState } from "react"
+
 export default function Post(props) {
+  const [like, setLike] = useState ("heart-outline")
+  const [cor, setCor] = useState ("")
+  const [save, setSave] = useState ("bookmark-outline")  
+
+  function liker() {
+    switch (like){
+      case "heart-outline":
+        setLike("heart")
+        setCor("red")
+        break;
+      case "heart":
+        setLike("heart-outline")
+        setCor("")
+        break;
+      default:
+    }
+  }
+
+  function likeFoto() {
+    switch (like){
+      case "heart-outline":
+        setLike("heart")
+        setCor("red")
+        break;
+      default:
+    }
+  }
+
+  function savePost() {
+    switch (save) {
+      case "bookmark-outline":
+        setSave("bookmark")
+        break
+      case "bookmark":
+        setSave("bookmark-outline")
+        break;
+      default:
+    }
+  }
+
   return (
     <div class="post">
       <div class="topo">
@@ -12,18 +54,18 @@ export default function Post(props) {
       </div>
 
       <div class="conteudo">
-        <img src={props.fotoConteudo} alt={props.userName}/>
+        <img onClick={likeFoto} src={props.fotoConteudo} alt={props.userName}/>
       </div>
 
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon onClick={liker} class={cor} name={like}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon name="bookmark-outline"></ion-icon>
+            <ion-icon onClick={savePost} name={save}></ion-icon>
           </div>
         </div>
 
